@@ -78,7 +78,12 @@ export function SidebarNavigation() {
               />
             ))}
           </ul>
-          <ul className={styles.list}>
+          <ul
+            className={classNames(
+              styles.list,
+              isSidebarCollapsed && styles.isCollapsed,
+            )}
+          >
             <MenuItemButton
               text="Support"
               iconSrc="/icons/support.svg"

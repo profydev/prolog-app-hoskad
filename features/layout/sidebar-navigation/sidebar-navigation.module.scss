@@ -19,8 +19,10 @@
     @media (min-width: breakpoint.$desktop) {
       width: 5.1875rem;
 
-      .logo {
-        width: 1.4375rem;
+      .icon {
+        width: space.$s6;
+        margin-right: space.$s3;
+        transform: rotate(180deg);
       }
     }
   }
