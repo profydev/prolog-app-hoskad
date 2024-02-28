@@ -10,6 +10,10 @@ type ProjectCardProps = {
   project: Project;
 };
 
+interface StatusMapping {
+  [key: string]: string;
+}
+
 const languageNames = {
   [ProjectLanguage.react]: "React",
   [ProjectLanguage.node]: "Node.js",
@@ -17,12 +21,23 @@ const languageNames = {
 };
 
 const statusColors = {
-  [ProjectStatus.stable]: BadgeColor.success,
+  //stable
+  [ProjectStatus.info]: BadgeColor.success,
+  //warning
   [ProjectStatus.warning]: BadgeColor.warning,
+  //critical
   [ProjectStatus.critical]: BadgeColor.error,
 };
 
+const statusMapping: StatusMapping = {
+  error: "critical",
+  info: "stable",
+  warning: "warning", // remains unchanged
+  success: "stable",
+};
+
 export function ProjectCard({ project }: ProjectCardProps) {
+  console.log(project);
   const { name, language, numIssues, numEvents24h, status } = project;
 
   return (
@@ -50,7 +65,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className={styles.issuesNumber}>{numEvents24h}</div>
           </div>
           <div className={styles.status}>
-            <Badge color={statusColors[status]}>{capitalize(status)}</Badge>
+            <Badge color={statusColors[status]}>
+              {capitalize(statusMapping[status])}
+            </Badge>
           </div>
         </div>
       </div>
