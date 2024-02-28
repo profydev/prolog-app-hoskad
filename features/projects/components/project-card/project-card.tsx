@@ -21,24 +21,24 @@ const languageNames = {
 };
 
 const statusColors = {
-  //stable
-  [ProjectStatus.info]: BadgeColor.success,
-  //warning
+  [ProjectStatus.stable]: BadgeColor.success,
   [ProjectStatus.warning]: BadgeColor.warning,
-  //critical
   [ProjectStatus.critical]: BadgeColor.error,
 };
 
 const statusMapping: StatusMapping = {
   error: "critical",
   info: "stable",
-  warning: "warning", // remains unchanged
-  success: "stable",
+  warning: "warning",
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  console.log(project);
-  const { name, language, numIssues, numEvents24h, status } = project;
+  const { name, language, numIssues, numEvents24h } = project;
+  const statusKey = project.status;
+  const translatedStatus = statusMapping[statusKey];
+  const statusColor = translatedStatus
+    ? statusColors[translatedStatus as keyof typeof statusColors]
+    : undefined;
 
   return (
     <div className={styles.container}>
@@ -65,9 +65,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className={styles.issuesNumber}>{numEvents24h}</div>
           </div>
           <div className={styles.status}>
-            <Badge color={statusColors[status]}>
-              {capitalize(statusMapping[status])}
-            </Badge>
+            <Badge color={statusColor}>{capitalize(translatedStatus)}</Badge>
           </div>
         </div>
       </div>
