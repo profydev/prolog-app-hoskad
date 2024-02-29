@@ -3,7 +3,6 @@ import { ProjectLanguage } from "@api/projects.types";
 import { useGetProjects } from "@features/projects";
 import { useGetIssues } from "../../api/use-get-issues";
 import { IssueRow } from "./issue-row";
-import { SearchBar } from "./project-search-bar";
 import styles from "./issue-list.module.scss";
 
 export function IssueList() {
@@ -56,7 +55,6 @@ export function IssueList() {
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
         </select>
-        <SearchBar />
       </div>
       <div className={styles.container}>
         <table className={styles.table}>
