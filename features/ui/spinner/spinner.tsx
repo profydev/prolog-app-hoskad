@@ -4,7 +4,7 @@ export default function Spinner() {
   return (
     <div className={styles.spinnerContainer}>
       <svg
-        width="1160"
+        width="1160git "
         height="300"
         viewBox="0 0 1160 300"
         fill="none"
