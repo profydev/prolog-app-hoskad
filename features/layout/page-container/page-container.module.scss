@@ -43,3 +43,9 @@
   color: color.$gray-500;
   font: font.$text-md-regular;
 }
+
+.centered {
+  display: grid;
+  place-items: center; // Shortcut for centering items both horizontally and vertically
+  min-height: 100%; // Ensure the container takes up at least the height of its parent
+}
