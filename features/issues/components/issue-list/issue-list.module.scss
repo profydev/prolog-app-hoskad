@@ -13,6 +13,17 @@
   overflow: hidden;
 }
 
+.filtersBar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  width: 100%;
+  height: 26%;
+  margin-bottom: 24px;
+  justify-content: flex-end;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -58,4 +69,26 @@
 .pageNumber {
   font: font.$text-sm-medium;
   color: color.$gray-700;
+}
+
+.inputwrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchinput {
+  width: 100%;
+  padding-left: 30px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+}
+
+.searchicon {
+  position: absolute;
+  left: 10px; /* Adjust this value to move the SVG closer or further from the right */
+}
+
+.searchinput::placeholder {
+  padding-left: 40px;
 }

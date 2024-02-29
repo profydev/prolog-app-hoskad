@@ -3,6 +3,7 @@ import { ProjectLanguage } from "@api/projects.types";
 import { useGetProjects } from "@features/projects";
 import { useGetIssues } from "../../api/use-get-issues";
 import { IssueRow } from "./issue-row";
+import { SearchBar } from "./project-search-bar";
 import styles from "./issue-list.module.scss";
 
 export function IssueList() {
@@ -41,48 +42,65 @@ export function IssueList() {
   const { items, meta } = issuesPage.data || {};
 
   return (
-    <div className={styles.container}>
-      <table className={styles.table}>
-        <thead>
-          <tr className={styles.headerRow}>
-            <th className={styles.headerCell}>Issue</th>
-            <th className={styles.headerCell}>Level</th>
-            <th className={styles.headerCell}>Events</th>
-            <th className={styles.headerCell}>Users</th>
-          </tr>
-        </thead>
-        <tbody>
-          {(items || []).map((issue) => (
-            <IssueRow
-              key={issue.id}
-              issue={issue}
-              projectLanguage={projectIdToLanguage[issue.projectId]}
-            />
-          ))}
-        </tbody>
-      </table>
-      <div className={styles.paginationContainer}>
-        <div>
-          <button
-            className={styles.paginationButton}
-            onClick={() => navigateToPage(page - 1)}
-            disabled={page === 1}
-          >
-            Previous
-          </button>
-          <button
-            className={styles.paginationButton}
-            onClick={() => navigateToPage(page + 1)}
-            disabled={page === meta?.totalPages}
-          >
-            Next
-          </button>
-        </div>
-        <div className={styles.pageInfo}>
-          Page <span className={styles.pageNumber}>{meta?.currentPage}</span> of{" "}
-          <span className={styles.pageNumber}>{meta?.totalPages}</span>
+    <>
+      <div className={styles.filtersBar}>
+        <select>
+          <option value="">Unresolved</option>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+        <select>
+          <option value="">Level</option>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+        <SearchBar />
+      </div>
+      <div className={styles.container}>
+        <table className={styles.table}>
+          <thead>
+            <tr className={styles.headerRow}>
+              <th className={styles.headerCell}>Issue</th>
+              <th className={styles.headerCell}>Level</th>
+              <th className={styles.headerCell}>Events</th>
+              <th className={styles.headerCell}>Users</th>
+            </tr>
+          </thead>
+          <tbody>
+            {(items || []).map((issue) => (
+              <IssueRow
+                key={issue.id}
+                issue={issue}
+                projectLanguage={projectIdToLanguage[issue.projectId]}
+              />
+            ))}
+          </tbody>
+        </table>
+        <div className={styles.paginationContainer}>
+          <div>
+            <button
+              className={styles.paginationButton}
+              onClick={() => navigateToPage(page - 1)}
+              disabled={page === 1}
+            >
+              Previous
+            </button>
+            <button
+              className={styles.paginationButton}
+              onClick={() => navigateToPage(page + 1)}
+              disabled={page === meta?.totalPages}
+            >
+              Next
+            </button>
+          </div>
+          <div className={styles.pageInfo}>
+            Page <span className={styles.pageNumber}>{meta?.currentPage}</span>{" "}
+            of <span className={styles.pageNumber}>{meta?.totalPages}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
