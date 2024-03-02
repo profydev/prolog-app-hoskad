@@ -1,5 +1,6 @@
 @use "@styles/breakpoint";
 @use "@styles/space";
+@use "@styles/color";
 
 .list {
   display: grid;
@@ -14,4 +15,40 @@
   @media (min-width: breakpoint.$desktop) {
     grid-template-columns: repeat(auto-fit, 400px);
   }
+}
+
+.error {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background-color: color.$error-25;
+  color: color.$error-700;
+  border: 1px solid color.$error-300;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+}
+
+.errormessage {
+  margin-right: auto;
+}
+
+.alertcircle {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: color.$error-600;
+}
+
+.tryagain {
+  display: flex;
+  background-color: color.$error-25;
+  color: color.$error-700;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding-right: 16px;
 }
