@@ -53,8 +53,8 @@
   align-self: stretch;
   background: color.$gray-50;
   position: sticky;
-  top: 100vh; /* Push the footer to the bottom of the viewport */
-  margin-top: -60px; /* Negative margin equal to the footer's height to pull it into view */
+  top: 100vh;
+  margin-top: -60px;
   width: 100%;
 }
 
