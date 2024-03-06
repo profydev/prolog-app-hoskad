@@ -55,6 +55,109 @@
   padding-right: 32px;
 }
 
+.modalOverlay {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgb(52 64 84 / 60%);
+  backdrop-filter: blur(8px);
+}
+
+.modalContent {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 8px -4px rgb(16 24 40 / 4%),
+    0 20px 24px -4px rgb(16 24 40 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  align-self: stretch;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; /* Adjust width as needed */
+  max-width: 400px; /* Adjust max-width as needed */
+  height: 288px;
+}
+
+.modalTitle {
+  align-self: stretch;
+  color: color.$gray-900;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 155.556% */
+  margin-bottom: -10px;
+}
+
+.modalActions {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.modalDescription {
+  display: flex;
+  color: color.$gray-500;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  width: 80%;
+  height: auto;
+  justify-content: center;
+}
+
+.modalCancel {
+  display: flex;
+  padding: 10px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 8px;
+  border: 1px solid color.$gray-300;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+  color: color.$gray-700;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+.modalEmail {
+  display: flex;
+  padding: 10px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 8px;
+  border: 1px solid color.$primary-600;
+  background: color.$primary-600;
+  box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
 .contactButton {
   position: absolute;
   bottom: 2.5rem;
